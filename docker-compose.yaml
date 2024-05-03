@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  gateway:
+    image: graphql-app:latest
+    ports:
+      - 8080:5000
+    environment:
+      - GRAPHQL_ENDPOINTS=http://subgraph:5001/graphql
+      - GRAPHQL_PORT=5000
+    depends_on:
+      - subgraph
+    command: >
+      sh -c "sleep 10 && node dist/gateway.js"
+
+  subgraph:
+    build: .
+    image: graphql-app:latest
+    container_name: ms-graphql-subgraph
+    restart: always
+    command: >
+      sh -c "PORT=5001 node dist/subgraph.js"

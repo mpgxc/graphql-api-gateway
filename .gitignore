@@ -1,0 +1,9 @@
+node_modules
+src/node_modules
+src/package.json
+src/newrelic_agent.log
+newrelic_agent.log
+.idea
+.env
+dist/
+package-lock.json
