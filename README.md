@@ -1,5 +1,3 @@
-## Rodando vcia docker
-
 ```sh
 docker-compose up -d --build
 ```
